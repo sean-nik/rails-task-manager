@@ -1,0 +1,17 @@
+<%= form_for(@task) do |f|%>
+  <%= f.label :title %>
+  <%= f.text_field :title  %>
+  <%= f.label :details %>
+  <%= f.text_field :details  %>
+  <%= f.submit %>
+<% end %>
+
+<% if @task.completed == false %>
+  <%= form_for(@task) do |f|%>
+  <%= f.hidden_field :completed, value: true  %>
+  <%= f.submit "Mark as complete"%>
+  <% end %>
+<% end %>
+
+
+<%= link_to "Return", tasks_path %>
